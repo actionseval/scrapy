@@ -22,6 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        os: [ubuntu-latest]
         include:
           - python-version: '3.9'
             env:
