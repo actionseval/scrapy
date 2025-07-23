@@ -17,7 +17,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install Dependencies
         run: |
-          apt install -y adduser apt base-files bash bash-completion bzip2 command-not-found coreutils cron debconf diffutils distro-info-data dpkg e2fsprogs findutils fuse3 gettext-base gpgconf gpgv gzip hdparm keyutils libapt-pkg6.0:amd64 libattr1:amd64 libaudit-common libaudit1:amd64 libbz2-1.0:amd64 libc-bin libc6:amd64 libcap-ng0:amd64 libcap2:amd64 libexpat1:amd64 libffi8:amd64 libgcc-s1:amd64 libgcrypt20:amd64 libgmp10:amd64 libgnutls30:amd64 libgpg-error0:amd64 libhogweed6:amd64 libidn2-0:amd64 liblz4-1:amd64 liblzma5:amd64 libmagic1:amd64 libmecab2:amd64 libncursesw6:amd64 libnettle8:amd64 libp11-kit0:amd64 libpam-cap:amd64 libpam-modules:amd64 libpam-runtime libpcre2-8-0:amd64 libpython3.13-stdlib:amd64 libreadline8:amd64 libseccomp2:amd64 libselinux1:amd64 libsensors-config libstdc++6:amd64 libsystemd0:amd64 libtasn1-6:amd64 libtinfo6:amd64 libtirpc-common libudev1:amd64 libunistring2:amd64 libxxhash0:amd64 libzstd1:amd64 locales login logrotate lsb-release ltrace lz4 mailcap man-db media-types multipath-tools nano ncurses-base needrestart netbase nftables openssl overlayroot packagekit packages-microsoft-prod pkgconf procps python3-zope.interface python3.13 rsyslog screen snapd sudo tar tzdata ubuntu-keyring ubuntu-pro-client ucf unixodbc-common update-notifier-common usb-modeswitch walinuxagent wget xz-utils zlib1g:amd64 zstd
+          sudo apt install -y adduser
           pip install setuptools==80.9.0
       - run: |
           sudo apt-get update
