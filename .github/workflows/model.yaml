@@ -1,0 +1,28 @@
+name: model
+
+on: workflow_dispatch
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install libxml2-dev libxslt-dev
+
+      - name: Install Python dependencies
+        run: |
+          pip install -U attrs boto3 boto3-stubs botocore botocore-stubs bpython brotli brotlicffi brotlipy build coverage cryptography cssselect google-cloud-storage ipython itemadapter lxml mitmproxy mypy parsel pexpect Pillow Protego pyftpdlib pygments pyOpenSSL PyPyDispatcher pytest pytest-cov pytest-xdist queuelib robotexclusionrulesparser service_identity sybil testfixtures tox twine Twisted types-lxml types-Pygments typing-extensions uvloop w3lib zope.interface zstandard
+
+      - name: Run tests
+        run: |
+          tox
