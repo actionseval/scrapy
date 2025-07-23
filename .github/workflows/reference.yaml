@@ -87,8 +87,8 @@ jobs:
 
     # >>> IS IDENTIFIER
     # - name: Install system libraries
-      - if: contains(matrix.python-version, 'pypy') || contains(matrix.env.TOXENV, 'pinned')
-        run: |
+    # - if: contains(matrix.python-version, 'pypy') || contains(matrix.env.TOXENV, 'pinned')
+      - run: |
           sudo apt-get update
           sudo apt-get install libxml2-dev libxslt-dev
 
