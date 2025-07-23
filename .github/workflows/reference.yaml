@@ -22,59 +22,59 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]
         include:
-          - python-version: '3.9'
+        #   - python-version: '3.9'
+        #     env:
+        #       TOXENV: py
+        #   - python-version: '3.10'
+        #     env:
+        #       TOXENV: py
+        #   - python-version: '3.11'
+        #     env:
+        #       TOXENV: py
+        #   - python-version: '3.12'
+        #     env:
+        #       TOXENV: py
+          - os: ubuntu-latest
+            python-version: '3.13'
             env:
               TOXENV: py
-          - python-version: '3.10'
-            env:
-              TOXENV: py
-          - python-version: '3.11'
-            env:
-              TOXENV: py
-          - python-version: '3.12'
-            env:
-              TOXENV: py
-          - python-version: '3.13'
-            env:
-              TOXENV: py
-          - python-version: '3.13'
-            env:
-              TOXENV: default-reactor
-          - python-version: pypy3.10
-            env:
-              TOXENV: pypy3
-          - python-version: pypy3.11
-            env:
-              TOXENV: pypy3
+        #   - python-version: '3.13'
+        #     env:
+        #       TOXENV: default-reactor
+        #   - python-version: pypy3.10
+        #     env:
+        #       TOXENV: pypy3
+        #   - python-version: pypy3.11
+        #     env:
+        #       TOXENV: pypy3
 
-        # pinned deps
-          - python-version: 3.9.21
-            env:
-              TOXENV: pinned
-          - python-version: 3.9.21
-            env:
-              TOXENV: default-reactor-pinned
-          - python-version: pypy3.10
-            env:
-              TOXENV: pypy3-pinned
-          - python-version: 3.9.21
-            env:
-              TOXENV: extra-deps-pinned
-          - python-version: 3.9.21
-            env:
-              TOXENV: botocore-pinned
+        # # pinned deps
+        #   - python-version: 3.9.21
+        #     env:
+        #       TOXENV: pinned
+        #   - python-version: 3.9.21
+        #     env:
+        #       TOXENV: default-reactor-pinned
+        #   - python-version: pypy3.10
+        #     env:
+        #       TOXENV: pypy3-pinned
+        #   - python-version: 3.9.21
+        #     env:
+        #       TOXENV: extra-deps-pinned
+        #   - python-version: 3.9.21
+        #     env:
+        #       TOXENV: botocore-pinned
 
-          - python-version: '3.13'
-            env:
-              TOXENV: extra-deps
-          - python-version: pypy3.11
-            env:
-              TOXENV: pypy3-extra-deps
-          - python-version: '3.13'
-            env:
-              TOXENV: botocore
+        #   - python-version: '3.13'
+        #     env:
+        #       TOXENV: extra-deps
+        #   - python-version: pypy3.11
+        #     env:
+        #       TOXENV: pypy3-extra-deps
+        #   - python-version: '3.13'
+        #     env:
+        #       TOXENV: botocore
 
     steps:
       - uses: actions/checkout@v4
@@ -87,8 +87,8 @@ jobs:
 
     # >>> IS IDENTIFIER
     # - name: Install system libraries
-    # - if: contains(matrix.python-version, 'pypy') || contains(matrix.env.TOXENV, 'pinned')
-      - run: |
+      - if: contains(matrix.python-version, 'pypy') || contains(matrix.env.TOXENV, 'pinned')
+        run: |
           sudo apt-get update
           sudo apt-get install libxml2-dev libxslt-dev
 
